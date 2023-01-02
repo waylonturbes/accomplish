@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@prisma/client": "^4.8.0",
     "next": "latest",
     "next-pwa": "^5.6.0",
     "react": "^18.2.0",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/node": "17.0.4",
     "@types/react": "17.0.38",
+    "prisma": "^4.8.0",
     "typescript": "4.5.4"
   }
 }
