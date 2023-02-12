@@ -11,21 +11,32 @@ datasource db {
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
+  id        String  @id @default(uuid())
   firstName String?
   lastName  String?
   tasks     Task[]
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
-  title       String
+  id          String          @id @default(uuid())
+  title       String 
   description String?
-  createdAt   DateTime @default(now())
-  user        User     @relation(fields: [userId], references: [id])
-  userId      Int
-  isCompleted Boolean? @default(false)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime?       @default(now())
+  user        User            @relation(fields: [userId], references: [id])
+  userId      String
+  isCompleted Boolean?        @default(false)
   date        Int
   month       Int
   year        Int
+  emoji       String?
+  checklist   ChecklistItem[] 
+}
+
+model ChecklistItem {
+  id        String  @id @default(uuid())
+  task      Task    @relation(fields: [taskId], references: [id])
+  taskId    String
+  name      String
+  isChecked Boolean @default(false)
 }

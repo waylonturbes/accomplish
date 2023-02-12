@@ -11,10 +11,12 @@ CREATE TABLE "Task" (
     "title" TEXT NOT NULL,
     "description" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME,
     "userId" INTEGER NOT NULL,
     "isCompleted" BOOLEAN DEFAULT false,
     "date" INTEGER NOT NULL,
     "month" INTEGER NOT NULL,
     "year" INTEGER NOT NULL,
+    "emoji" TEXT,
     CONSTRAINT "Task_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
