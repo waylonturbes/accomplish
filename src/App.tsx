@@ -1,15 +1,16 @@
-import { useState } from "react";
 import { Button, Text, VStack } from "@chakra-ui/react";
 
+import { useCount } from "./hooks/useCount";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const { count, handleCountChange } = useCount();
 
   return (
     <VStack>
       <Text>{count}</Text>
       <Button
         onClick={() => {
-          setCount((v) => v + 1);
+          handleCountChange("increment");
         }}
       >
         Up Count
